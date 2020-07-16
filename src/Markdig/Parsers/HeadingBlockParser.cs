@@ -73,12 +73,12 @@ namespace Markdig.Parsers
             if (leadingCount > 0 && leadingCount <= MaxLeadingCount && (c.IsSpaceOrTab() || c == '\0'))
             {
                 // Move to the content
-                var headingBlock = new HeadingBlock(this)
-                {
+                var headingBlock = new HeadingBlock(this) {
                     HeaderChar = matchingChar,
                     Level = leadingCount,
                     Column = column,
-                    Span = { Start =  sourcePosition }
+                    Span = { Start = sourcePosition },
+                    RawContent = line.ToString().Substring(leadingCount + 1, processor.Line.End),
                 };
                 processor.NewBlocks.Push(headingBlock);
                 processor.GoToColumn(column + leadingCount + 1);

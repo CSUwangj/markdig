@@ -31,5 +31,7 @@ namespace Markdig.Syntax
         /// Gets or sets the level of heading (starting at 1 for the lowest level).
         /// </summary>
         public int Level { get; set; }
+
+        public string RawContent { get; set; }
     }
 }
